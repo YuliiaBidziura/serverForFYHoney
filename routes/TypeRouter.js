@@ -1,11 +1,18 @@
 const Router = require('express')
 const TypeController = require('../controllers/TypeController.js')
-const typeRouter = new Router();
+const cors = require('cors')
 
-typeRouter.post('/', TypeController.create);
-typeRouter.get('/', TypeController.getAll);
-typeRouter.get('/:id', TypeController.getOne);
-typeRouter.put('/', TypeController.update);
-typeRouter.delete('/:id', TypeController.delete)
+const typeRouter = new Router()
+
+const corsOptions = {
+    origin: 'https://yuliiabidziura.github.io/',
+    optionsSuccessStatus: 200 
+}
+
+typeRouter.post('/', cors(corsOptions), TypeController.create);
+typeRouter.get('/', cors(corsOptions), TypeController.getAll);
+typeRouter.get('/:id', cors(corsOptions), TypeController.getOne);
+typeRouter.put('/', cors(corsOptions), TypeController.update);
+typeRouter.delete('/:id', cors(corsOptions), TypeController.delete)
 
 module.exports = typeRouter;

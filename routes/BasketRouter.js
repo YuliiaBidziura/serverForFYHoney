@@ -1,10 +1,16 @@
 const Router = require('express')
 const BasketController = require('../controllers/BasketController.js')
+const cors = require('cors')
 const basketRouter = new Router();
 
-basketRouter.post('/', BasketController.create);
-basketRouter.get('/:id', BasketController.getOne);
-basketRouter.put('/', BasketController.update);
-basketRouter.delete('/:id', BasketController.delete)
+const corsOptions = {
+    origin: 'https://yuliiabidziura.github.io/',
+    optionsSuccessStatus: 200 
+}
+
+basketRouter.post('/', cors(corsOptions), BasketController.create);
+basketRouter.get('/:id', cors(corsOptions), BasketController.getOne);
+basketRouter.put('/', cors(corsOptions), BasketController.update);
+basketRouter.delete('/:id', cors(corsOptions), BasketController.delete)
 
 module.exports = basketRouter;

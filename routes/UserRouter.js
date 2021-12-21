@@ -1,10 +1,16 @@
 const Router = require('express')
 const UserController = require('../controllers/UserController.js')
 const authModdleware = require('../middlevare/authMidlleware.js')
-const userRouter = new Router();
+const cors = require('cors')
+const userRouter = new Router()
 
-userRouter.post('/registration', UserController.registration);
-userRouter.post('/login', UserController.login)
-userRouter.get('/auth', authModdleware,  UserController.check);
+const corsOptions = {
+    origin: 'https://yuliiabidziura.github.io/',
+    optionsSuccessStatus: 200 
+}
+
+userRouter.post('/registration', cors(corsOptions), UserController.registration);
+userRouter.post('/login', cors(corsOptions), UserController.login)
+userRouter.get('/auth', cors(corsOptions), authModdleware,  UserController.check);
 
 module.exports = userRouter;
