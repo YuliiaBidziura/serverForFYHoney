@@ -15,7 +15,7 @@ const app = express()
 const DB_URL = 'mongodb+srv://YuliiaBidziura:UsEr123@cluster0.xp0v5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 const corsOptions = {
-    origin: '*',
+    origin: 'https://yuliiabidziura.github.io/FYHoney/',
     optionsSuccessStatus: 200,
 }
 
