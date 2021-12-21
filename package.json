@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/YuliiaBidziura/serverForFYHoney#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "express-fileupload": "^1.2.1",
+    "mongoose": "^6.1.2",
+    "path": "^0.12.7",
+    "uuid": "^8.3.2"
   }
 }
