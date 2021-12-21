@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 80
 const app = express()
 const DB_URL = 'mongodb+srv://YuliiaBidziura:UsEr123@cluster0.xp0v5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-app.use(cors({origin: 'https://yuliiabidziura.github.io'}));
+app.use(cors({origin: 'https://54.243.96.10:443'}));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}));
