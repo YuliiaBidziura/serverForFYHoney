@@ -1,7 +1,12 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const BasketModel = require('./models/BasketModel')
+const CategoryModel = require('./models/CategoryModel')
+const ProductModel = require('./models/ProductModel')
+const TypeModel = require('./models/TypeModel')
+const UserModel = require('./models/UserModel')
 const fileUpload = require('express-fileupload')
-const router = require('./routes/index.js')
+const router = require('./routes/index')
 const cors = require('cors')
 const path = require('path')
 
@@ -11,11 +16,11 @@ const DB_URL = 'mongodb+srv://YuliiaBidziura:UsEr123@cluster0.xp0v5.mongodb.net/
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('static'));
-app.use(fileUpload({ }));
+app.use(express.static(path.resolve(__dirname, 'static')))
+app.use(fileUpload({}));
 app.use('/api', router);
 
-async function startApp() {
+const startApp = async() => {
     try {
         await mongoose.connect(DB_URL, {useUnifiedTopology: true, useNewUrlParser: true});
         app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
@@ -24,4 +29,5 @@ async function startApp() {
     }
 };
 
-startApp();
+startApp()
+
