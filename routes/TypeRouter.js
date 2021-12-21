@@ -5,7 +5,7 @@ const cors = require('cors')
 const typeRouter = new Router()
 
 const corsOptions = {
-    origin: 'https://yuliiabidziura.github.io/',
+    origin: 'https://git.heroku.com/polar-caverns-45268.git ',
     optionsSuccessStatus: 200 
 }
 
